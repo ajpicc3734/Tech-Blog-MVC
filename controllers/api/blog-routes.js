@@ -3,7 +3,7 @@ const { User, Blog } = require("../../models");
 
 router.get("/", (req, res) => {
   Blog.findAll({
-    attributes: ["id", "blog_url", "title", "created_at"],
+    attributes: ["id", "body", "title", "created_at"],
     include: [
       {
         model: User,
@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "Blong_url", "title", "created_at"],
+    attributes: ["id", "body", "title", "created_at"],
     include: [
       {
         model: User,
@@ -40,9 +40,8 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   Blog.create({
-    title: req.body.title,
-    blog_url: req.body.blog_url,
-    user_id: req.body.user_id,
+    ...req.body,
+    user_id: req.session.user_id,
   })
     .then((dbBlogData) => res.json(dbBlogData))
     .catch((err) => {
