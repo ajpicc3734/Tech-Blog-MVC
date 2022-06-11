@@ -1,1 +1,22 @@
-<div>You are on the homepage</div>
+<ol class="post-list">
+    {{#each blogs as |blogs|}}
+  <li>
+    <article class="blogs">
+      <div class="title">
+        {{title}}
+      
+      </div>
+      <div class="body">
+        {{body}}
+      </div>
+      <div class="meta">
+      by {{user.username}} on
+        {{created_at}}
+        |
+        
+      </div>
+    </article>
+  </li>
+  {{/each}}
+</ol>
+
