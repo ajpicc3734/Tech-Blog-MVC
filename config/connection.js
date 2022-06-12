@@ -12,7 +12,6 @@ require("dotenv").config();
 //     port: 3306,
 //   }
 // );
-
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
