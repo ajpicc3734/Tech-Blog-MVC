@@ -21,9 +21,11 @@
     {{#each blogs as |blog|}}
     <li>
       {{> blog-info blog}}
-      {{!-- <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a> --}}
+      <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit blog</a>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
+
+<script src="/javascript/add-blog.js"></script>

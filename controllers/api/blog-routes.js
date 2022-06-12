@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Blog, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
   Blog.findAll({
@@ -46,7 +47,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
   Blog.create({
     title: req.body.title,
     body: req.body.body,
@@ -59,7 +60,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   Blog.update(
     {
       title: req.body.title,
@@ -77,7 +78,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Blog.destroy({
     where: {
       id: req.params.id,
