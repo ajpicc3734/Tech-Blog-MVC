@@ -1,21 +1,17 @@
-{{!-- <article class="post">
-  <div class="title">
-    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-    <span>({{post.post_url}})</span>
-  </div>
-  <div class="meta">
-    {{post.vote_count}} point(s) by {{post.user.username}} on
-    {{post.created_at}}
-    |
-    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-  </div>
-</article> --}}
 
-<div>
+
+<h2 class="single-blog-title">
   {{blog.title}}
-</div>
+</h2>
 <div>
-  {{blog.body}}
-  by {{user.username}}
-  {{comments}}
+ <div class="single-blog-body">{{blog.body}}</div> 
+<div>
+  <p class="by">Posted by: {{blog.user.username}}</p> 
+</div>
+ 
+  <div>
+    <p>comments:</p>
+    {{blog.comments}}
+  </div>
+  
 </div>
