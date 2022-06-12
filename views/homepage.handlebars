@@ -1,22 +1,7 @@
 <ol class="post-list">
-    {{#each blogs as |blogs|}}
+  {{#each blogs as |blog|}}
   <li>
-    <article class="blogs">
-      <div class="title">
-        {{title}}
-      
-      </div>
-      <div class="body">
-        {{body}}
-      </div>
-      <div class="meta">
-      by {{user.username}} on
-        {{created_at}}
-        |
-        
-      </div>
-    </article>
+    {{> blog-info blog }}
   </li>
   {{/each}}
 </ol>
-
